@@ -26,6 +26,12 @@ var passwordLenght = prompt("Please enter a password lenght between 8 and 128 ch
 console.log(passwordLenght);
 var passwordLenghtInt = parseInt(passwordLenght)
 
+// added if statement
+if(passwordLenght < 8 || passwordLenght > 128) {
+  alert('Please eneter a password length between 8 and 128 characters');
+  return password;
+
+}
 
 var lowercaseConfirm = confirm("Do you want to include lowercase letter?");
 console.log(lowercaseConfirm);
@@ -50,10 +56,21 @@ if(numbersConfirm){
 }
 var symbolsConfirm = confirm("Do you want to include symbols?");
 console.log(symbolsConfirm);
-if(symbolsConfirm){
+if(symbolsConfirm) {
   pool += symbols;
+
+}
+//Added if statement to return message if no characters are selected
+
+  if(!lowercaseConfirm && !uppercaseConfirm && !numbersConfirm && !symbolsConfirm){
+    alert('Please select at least one type of character');
+    return password;
+
+  }
   
   console.log(pool);
+
+
 
 
 // Added for loop
@@ -72,7 +89,7 @@ if(symbolsConfirm){
   
   }
 return password
-}
+
 }
 
 // Add event listener to generate button
